@@ -12,3 +12,7 @@
 .list-item-size {
 	font-size: .8em;
 }
+
+.job.first ul li:first-child {
+	color: orange;
+}
