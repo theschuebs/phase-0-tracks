@@ -1,15 +1,20 @@
-.octopus {
-	margin: 10% 40%;
+.octopus-wrapper {
 	position: relative;
+}
+
+.octopus {
+	margin: 85px 300px;
+	position: absolute;
 }
 
 .glasses {
 	position: absolute;
-	margin: 18% 43%;
-
+	margin: 184px 341px;
+	z-index: 101;
 }
 
 .hat {
 	position: absolute;
-	margin: 5% 38%;
+	margin: 23px 283px;
+	z-index: 100;
 }
