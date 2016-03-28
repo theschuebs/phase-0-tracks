@@ -4,8 +4,7 @@ string=gets.chomp
 
 def encrypt(string)
   #method takes a variable called string
-  new_string = ""
-  #encrypted_input = ""
+  encrypted_input = ""
   #this sets our encrypted word as a blank string
   letters = 0
   #this starts the index as 0
@@ -26,3 +25,52 @@ def encrypt(string)
 end
 
 puts encrypt(string)
+
+puts "type a word"
+string=gets.chomp
+
+def decrypt(string)
+  #method takes a variable called string
+  decrypted_input = ""
+  #this sets our decrypted word as a blank string
+  alphabet = "abcdefghijklmnopqrstuvwxyz"
+  #setting variable called alphabet
+  letters = 0
+  #this starts the index as 0
+  while letters < string.length
+    #as long as we have not yet iterated over all of the letters of the input word....
+    if string[letters].next == "a"
+      decrypted_input << "z"
+      #if we type an "a", it will input "a".  we want it to turn "a" back in just "z"
+    else
+      decrypted_input << alphabet[alphabet.index(string[letters]) - 1]
+      #otherwise take a letter and go back a letter, storing the value inside the variable "decrypted_input"
+    end   
+  letters += 1
+    #advance the index
+  end
+
+  decrypted_input
+end
+
+puts decrypt(string)
+
+puts "Would you like to decrypt or encrypt a password? (decrypt/encrypt)"
+answer = gets.chomp
+
+unless answer == "decrypt" || answer == "encrypt"
+  puts "I can't understand that word.  Try again later"
+end
+
+
+if answer == "decrypt"
+  puts "Please enter password"
+  string = gets.chomp
+  puts decrypt(string)
+end
+if
+  answer == "encrypt"
+  puts "Please enter password"
+  string = gets.chomp
+  puts encrypt(string)
+end
