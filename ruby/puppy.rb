@@ -14,3 +14,6 @@
 # Run
 # Cuddle
 # Hunt
+
+class Puppy
+	end
