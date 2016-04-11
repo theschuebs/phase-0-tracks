@@ -32,7 +32,7 @@ class Santa
 
 # Setter methods
 	def celebrate_birthday=(age)
-		@age = @age + 1
+		@age = age.to_i + 1
 	end
 
 	def get_mad_at(reindeer_name)
@@ -44,7 +44,7 @@ class Santa
 
 end
 
-# #Data bucket
+# #THE SANTA DATA BUCKET!!
 santas = []
 gender = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
 ethnicity = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
@@ -55,11 +55,10 @@ end
 #DRIVER CODE
 #Create new class instance
 santa = Santa.new(gender, ethnicity)
-
-#Call instance methods on new class instance
+#Call instance methods on new class instance and make 25 new santas
+for i in 1..25 do
+  puts "I am a #{santa.ethnicity.shuffle[0]} #{santa.gender.shuffle[0]} Santa. I am #{santa.celebrate_birthday = (santa.age)} years old and will be turning #{santa.age} on my BIRTHDAY!" 
+end
 santa.speak
 santa.milk_and_cookies("Thin Mint")
-puts "This santa is a #{santa.ethnicity.shuffle[0]} #{santa.gender.shuffle[0]}" 
 santa.get_mad_at("Vixen")
-# puts "Santa is turning #{santa.celebrate_birthday(5)}!"
-p santa.celebrate_birthday = "Santa is turning #{@age}!"
