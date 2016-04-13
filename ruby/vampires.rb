@@ -1,6 +1,10 @@
+#Asks user how many employees will be entering information
 puts "How many employees will be processed?"
+
+#Sets default to zero
 num_employees = 0
 employees_processed = gets.chomp
+#Loop the survey while the amount of employees is less than input
 while num_employees.to_i < employees_processed.to_i
 
 #User Input and data gathering
@@ -20,9 +24,22 @@ puts "Our cafeteria serves garlic bread. Should we order some for you? (y/n)"
 puts "Would you like to enroll in our health insurance? (y/n)"
 	health_insurance = gets.chomp
 	
+puts "Please add any allergies one at a time. Type 'done' when complete."
+	allergy = gets.chomp
+	
 num_employees += 1
 
 #Detection Logic
+
+#Add allergy condition
+	until allergy == "done"
+	puts "Please enter any allergies one at a time. Type 'done' when complete."
+		allergy = gets.chomp
+		if allergy == "sunshine"
+			puts "Probably a vampire"
+		end
+	end
+
 # If name is "Drake Cula" or "Tu Fang"
 	if name == "Drake Cula" || name == "Tu Fang"
 		puts "Definitely a vampire"
