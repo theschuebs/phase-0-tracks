@@ -14,7 +14,7 @@ console.log(object)
 // var object_new = {horses[0]: color[0],}
 // console.log(object_new)
 
-//Release 2 Constructor Functions
+//Release 2 Build an Object with a Constructor
 
 function Car(color, speed, isGoodCar) {
   console.log("Our new car:", this);
@@ -37,6 +37,6 @@ console.log("----");
 
 var thirdCar = new Car("red", 100, false);
 console.log(thirdCar);
-console.log("Our car can roar:");
+console.log("Our car can soar:");
 anotherCar.sounds();
 console.log("----");
