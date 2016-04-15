@@ -4,24 +4,28 @@
 # We spent [#] hours on this challenge.
 
 # EXPLANATION OF require_relative
-#
+# Requre relative will hook up a file to this file. Requre will hook up a file that is from a prewritten library (gem). 
 #
 require_relative 'state_data'
 
 class VirusPredictor
 
+#Initializing three instance variables
   def initialize(state_of_origin, population_density, population)
     @state = state_of_origin
     @population = population
     @population_density = population_density
   end
 
+#calling two methods and passing instance variables
   def virus_effects
     predicted_deaths(@population_density, @population, @state)
     speed_of_spread(@population_density, @state)
   end
 
   private
+
+#This method uses conditions to figure out how many deaths in a specific state will occur
 
   def predicted_deaths(population_density, population, state)
     # predicted deaths is solely based on population density
@@ -40,6 +44,8 @@ class VirusPredictor
     print "#{@state} will lose #{number_of_deaths} people in this outbreak"
 
   end
+
+#This method uses similar calculations to method above to calculate speed of spread 
 
   def speed_of_spread(population_density, state) #in months
     # We are still perfecting our formula here. The speed is also affected
@@ -69,6 +75,15 @@ end
 # DRIVER CODE
  # initialize VirusPredictor for each state
 
+#Create a method that will use the hash data to return each state's info.
+
+def data_return
+  STATE_DATA.each do | state, state_data_hash | 
+    VirusPredictor.new(state, state_data_hash[:population_density], state_data_hash[:population]).virus_effects
+  end 
+end
+
+data_return
 
 alabama = VirusPredictor.new("Alabama", STATE_DATA["Alabama"][:population_density], STATE_DATA["Alabama"][:population])
 alabama.virus_effects
