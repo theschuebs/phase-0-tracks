@@ -1,7 +1,7 @@
 # Virus Predictor
 
-# I worked on this challenge [by myself, with: ].
-# We spent [#] hours on this challenge.
+# I worked on this challenge [by myself, with: my GPS guide ].
+# We spent [#1.0] hours on this challenge.
 
 # EXPLANATION OF require_relative
 # Requre relative will hook up a file to this file. Requre will hook up a file that is from a prewritten library (gem). 
@@ -17,17 +17,23 @@ class VirusPredictor
     @population_density = population_density
   end
 
-#calling two methods and passing instance variables
+# calling two methods and passing instance variables
   def virus_effects
-    predicted_deaths(@population_density, @population, @state)
-    speed_of_spread(@population_density, @state)
+    predicted_deaths
+    #Refactor by getting rid of the below parameters
+    # (@population_density, @population, @state)
+    speed_of_spread
+    #Refactor by getting rid of the below parameters
+    # (@population_density, @state)
   end
 
   private
 
 #This method uses conditions to figure out how many deaths in a specific state will occur
 
-  def predicted_deaths(population_density, population, state)
+  def predicted_deaths
+    #Refactor by getting rid of the below parameters
+    # (population_density, population, state)
     # predicted deaths is solely based on population density
     if @population_density >= 200
       number_of_deaths = (@population * 0.4).floor
@@ -47,7 +53,9 @@ class VirusPredictor
 
 #This method uses similar calculations to method above to calculate speed of spread 
 
-  def speed_of_spread(population_density, state) #in months
+  def speed_of_spread
+    #Refactor by getting rid of the below parameters
+  # (population_density, state) #in months
     # We are still perfecting our formula here. The speed is also affected
     # by additional factors we haven't added into this functionality.
     speed = 0.0
@@ -100,3 +108,15 @@ alaska.virus_effects
 
 #=======================================================================
 # Reflection Section
+
+# What are the differences between the two different hash syntaxes shown in the state_data file?
+  #The key/value pair for state/state_data uses a string/hash. Then, inside the second hash, where the key/value
+  #is population_density and population are both symbols. 
+# What does require_relative do? How is it different from require?
+  #Requre relative will hook up a file to this file. Requre will hook up a file that is from a prewritten library (gem).
+# What are some ways to iterate through a hash?
+  # A block using .each and do/end will iterate through a hash. I think a while loop could work, too.
+# When refactoring virus_effects, what stood out to you about the variables, if anything?
+  #Since we are using instance variables and they are accessilbe within the whole class, they were not needed as arguments.
+# What concept did you most solidify in this challenge?
+  #Naming variables descriptively and understanding how the pipe parameters work when trying to access data in a hash within a hash.
