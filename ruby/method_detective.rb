@@ -30,6 +30,9 @@
 
 "Elementary  ,    my   dear      Watson!".replace("Elementary, my dear Watson!")
 => "Elementary, my dear Watson!"
+----OR----
+"Elementary  ,    my   dear      Watson!".split.join(" ")
+=> "Elementary, my dear Watson!"
 
 "z".ord
 => 122 
