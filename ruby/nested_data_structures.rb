@@ -1,3 +1,33 @@
+# <----------NIGHTHAWK VERSION---------->
+
+forest = {
+	trees: [
+		"Sugar Maple",
+		"Sycamore",
+		"Cottonwood"
+		],
+
+	animals: {
+		bird: "nest", 
+		fox: "den"
+		},
+
+	weather: [
+		"sunny", {
+			temperature: 60
+			}],
+
+	rivers: []
+
+}
+
+p forest[:trees]
+p forest[:rivers].push("Des Plaines")
+p forest[:weather][0].upcase
+
+
+
+# <----------POCKET GOPHER VERSION---------->
 game_board = {
 	houses: {
 		player_colors: [
