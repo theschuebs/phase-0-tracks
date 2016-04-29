@@ -1,41 +1,31 @@
 #<--------------Assignment done as Nighthawk --------------->
+# Release 3 Convert a standalone module to a mixin
+
 module Shout
-  def self.yell_angrily(words)
+  def yell_angrily(words)
     words + "!!!" + " :("
   end
 
-  def self.yell_happily(words)
+  def yell_happily(words)
   	words + "!" + " :)"
   end
 end
 
+class Man
+	include Shout
+end
 
+class Robot
+	include Shout
+end
 
-p Shout.yell_angrily("Hey")
-p Shout.yell_happily("Hey")
+man = Man.new
+p man.yell_angrily("Why are you waking me up?")
+p man.yell_happily("I got a raise")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+robot = Robot.new
+p robot.yell_angrily("Keep the sprinkler away from me")
+p robot.yell_happily("Hi, I'm Baymax. I am your personal healthcare assistant")
 
 #<--------------Assignment done as Pocket Gopher --------------->
 # # module Shout
