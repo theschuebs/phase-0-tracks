@@ -1,4 +1,6 @@
 // <------RELEASE 0 FIND THE LONGEST WORD --------->
+
+
 var longestPhraseFunction = function(){
 var phrases = ["hi there", "cool", "how long will this take me", "a"];
 var characters = 0;
@@ -6,7 +8,7 @@ var longestPhrase;
 
 	for(var i=0; i < phrases.length; i++){
     if(phrases[i].length > characters){
-        var characters = phrases[i].length;
+        characters = phrases[i].length;
         longestPhrase = phrases[i];
     }      
 } 
@@ -54,7 +56,7 @@ console.log(sharePair({name: "Steven"}, {name: "Steven"}))
 console.log(arrayBuilder(3))
 
 for (i = 1; i <=10; i++){
-	console.log(longestPhraseFunction((ArrayBuilder)))
+	console.log()
 }
 
 
