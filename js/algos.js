@@ -1,18 +1,17 @@
 // <------RELEASE 0 FIND THE LONGEST WORD --------->
 
-
-var longestPhraseFunction = function(){
-var phrases = ["hi there", "cool", "how long will this take me", "a"];
+function longestWordSort(phrases) {
+	
 var characters = 0;
 var longestPhrase;
-
+	
 	for(var i=0; i < phrases.length; i++){
     if(phrases[i].length > characters){
         characters = phrases[i].length;
         longestPhrase = phrases[i];
     }      
 } 
-return longestPhrase
+return longestPhrase;
 }
 
 
@@ -29,9 +28,9 @@ var sharePair = function(object1, object2) {
 
 
 // <------RELEASE 2 Generate Random Test Data --------->
-
+var wordArray = [];
 var arrayBuilder = function(int){
-	var wordArray = [];
+	
 	var alphabet = "abcdefghijklmnopqrstuvwxyz";
 	
 		for (var i = 0; i < int; i++){
@@ -44,7 +43,7 @@ var arrayBuilder = function(int){
 //DRIVER CODE
 
 //RELEASE 1
-console.log(longestPhraseFunction);
+console.log(longestWordSort(["hi there", "cool", "how long will this take me", "a"]));
 
 //RELEASE 2
 console.log(sharePair({name: "Steven", age: 54}, {name: "Tamir", age: 54}))
@@ -53,11 +52,21 @@ console.log(sharePair({name: "Jill", age: 20}, {name: "Jill", age: 20}))
 console.log(sharePair({name: "Steven"}, {name: "Steven"}))
 
 //RELEASE 3
-console.log(arrayBuilder(3))
+// console.log(arrayBuilder(3))
 
 for (i = 1; i <=10; i++){
-	console.log()
+	console.log(arrayBuilder(1)
+	console.log(longestWordSort(wordArray))
 }
+
+//NEED TO REFACTOR
+	//10 arrays are generated and it's adding one word into each array at a time. This results in a total of 10 arrays. 
+	//Each array DOES return the longest word. However, I want the arrays to have a random amount of words in it each
+	//of the 10 times, not incrementing the words by one. 
+
+	//I'd like to shuffle the string letters and make sure all the letters are being used randomly within the random strings.
+
+
 
 
 
