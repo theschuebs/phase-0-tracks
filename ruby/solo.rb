@@ -1,73 +1,62 @@
-# #Implement a class
+# Design a class
+# Users can create a FLAG
+# Users can decide how many stars they want on the flag (star attribute, intiger)
+# Users can decide how many stripes they want on the flag (stripe attribute, intiger)
+# Users can decide what color they'd like to use on the flag (color attribute, string)
 
-class Tent
-	attr_reader :brand, :guests
-	attr_accessor :color
-	# attr_accessor :color, :brand, :guests
-	#Define three attributes and methods, one must take an argument
-			# state attributes/characteristics in instance variables
-			# instance methods should store action/behaviors. 
+class Flag
+	attr_accessor :num_of_stars, :num_of_stripes, :color
 
-	def initialize(color, brand, guests)
-		puts "Initializing..."
-		# tent color
+	def initialize(num_of_stars, num_of_stripes, color)
+		@num_of_stars = num_of_stars.to_i
+		@num_of_stripes = num_of_stripes.to_i
 		@color = color
-		# #tent maker's brand name
-		@brand = brand
-		# Set guest count as 1 through 12
-		@guests = guests
-		
 	end
 
-	def set_up_time(time)
-		puts "This #{@color} #{@brand} tent takes #{time.to_i} minutes to set up and sleeps #{@guests} people comfortably."
+	def stars
+		puts "This flag will have #{@num_of_stars} stars"
+		puts "*********"
 	end
 
-	def zip
-		puts "Uh oh... It's about to rain, make sure to zip up the #{@brand} windows!"
+	def stripes
+		puts "---------"
+		puts "---------"
+		puts "This flag will have #{@num_of_stripes} stripes"
 	end
 
-	#Three getter and setter methods to make code readable and writable outside the class. They have been refactored at top of the page.
+	def color
+		puts "This flag is #{@color}"
+	end
 
-	# def color
-	# 	@color
-	# end
-
-	# def brand
-	# 	@brand
-	# end
-
-	# def guests
-	# 	@guests
-	# end
-
-	# def color=(new_color)
-	# 	@color = new_color
-	# end
-end
-#Data bucket
-
-tents = []
-color = ["green", "blue", "red", "brown", "beige", "grey", "orange"]
-brand = ["Coleman TM", "North Face TM", "Wenzel TM"]
-guests = [rand(1..12)]
-color.length.times do |i|
-  tents << Tent.new(color[i], brand[i], guests[i])
 end
 
-# initialize new instance of the tent class
-tent = Tent.new(color, brand, guests)
-puts "This tent is a #{tent.color.shuffle[0]} #{tent.brand.shuffle[0]}" 
-puts "We have 2 #{tent.color} #{tent.brand} left in stock."
-tent.color = "New! Camouflage color"
-tent.set_up_time(20)
-tent.zip
+my_flag = Flag.new(10, 10, 'red')
+my_flag.stars
+my_flag.stripes
+my_flag.color
 
+#UI
+# Store these class instances in an array.
+created_flags = []
 
+loop do
+# Prompt the user for each attribute
+puts "How many stars do you want on the flag? (type 'done' to exit)"
+num_of_stars = gets.chomp
+break if num_of_stars == 'done'
 
+puts "How many stripes do you want on the flag? (type 'done' to exit)"
+num_of_stripes = gets.chomp
+break if num_of_stripes == 'done'
 
+puts "What color would you like your flag to be? (type 'done' to exit)"
+color = gets.chomp
+break if color == 'done'
 
-# AS I DEVELOP...Parking Lot Questions
-#Can you have a boolean for an instance variable?
-# #does the tent include a fly?
-		# # @fly = yes || no
+p created_flags << Flag.new(num_of_stars, num_of_stripes, color)
+end
+
+created_flags.each do |flag|
+	puts "This flag has #{flag.num_of_stripes} stripes and #{flag.num_of_stars} stars."
+	puts "#{flag.color}"
+	end
