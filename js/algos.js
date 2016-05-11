@@ -1,4 +1,65 @@
 // <------RELEASE 0 FIND THE LONGEST WORD --------->
+var longestPhraseFunction = function(){
+var phrases = ["hi there", "cool", "how long will this take me", "a"];
+var characters = 0;
+var longestPhrase;
+
+	for(var i=0; i < phrases.length; i++){
+    if(phrases[i].length > characters){
+        var characters = phrases[i].length;
+        longestPhrase = phrases[i];
+    }      
+} 
+return longestPhrase
+}
+
+
+// <------RELEASE 1 FIND A KEY-VALUE MATCH ---------> 
+
+var sharePair = function(object1, object2) {
+	 for(var key in object1) {
+    if (object1[key] == object2[key]){
+    return true;	
+    }
+	}
+	return false;
+};
+
+
+// <------RELEASE 2 Generate Random Test Data --------->
+
+var arrayBuilder = function(int){
+	var wordArray = [];
+	var alphabet = "abcdefghijklmnopqrstuvwxyz";
+	
+		for (var i = 0; i < int; i++){
+			var randomNumber = Math.floor((Math.random() * 10) + 1);
+			wordArray.push(alphabet.substring(0, randomNumber));
+		}
+		return wordArray
+}
+
+//DRIVER CODE
+
+//RELEASE 1
+console.log(longestPhraseFunction);
+
+//RELEASE 2
+console.log(sharePair({name: "Steven", age: 54}, {name: "Tamir", age: 54}))
+console.log(sharePair({name: "Lee", age: 50}, {name: "Tamir", age: 54}))
+console.log(sharePair({name: "Jill", age: 20}, {name: "Jill", age: 20}))
+console.log(sharePair({name: "Steven"}, {name: "Steven"}))
+
+//RELEASE 3
+console.log(arrayBuilder(3))
+
+for (i = 1; i <=10; i++){
+	console.log(longestPhraseFunction((ArrayBuilder)))
+}
+
+
+
+// <------RELEASE 0 FIND THE LONGEST WORD --------->
 // Write a function 
 // This function will take an array of words or phrases
 // return the longest word in the array
@@ -11,42 +72,19 @@
 // if it's not longer, then the original phrase is the longest and the next phrase is compared to that.
 // Once all words have been compared, return the longest phrase. 
 
-var phrases = ["hi there", "cool", "how long will this take me", "a"];
-var characters = 0;
-var longestPhrase;
-
-	for(var i=0; i < phrases.length; i++){
-    if(phrases[i].length > characters){
-        var characters = phrases[i].length;
-        longestPhrase = phrases[i];
-    }      
-} 
-console.log(longestPhrase);
-
 // <------RELEASE 1 FIND A KEY-VALUE MATCH --------->
 
 // write a function
 		 // two objects
 		 // checks to see if the objects share at least one key-value pair. 
-
-//(You'll keep adding to this file, so we suggest grouping functions 
-//at the top and testing at the bottom of the file.) 
-//If we called your function with {name: "Steven", age: 54} 
-//and {name: "Tamir", age: 54}, the function would return true, 
-//because at least one key-value pair matches between the two objects. 
-//If no pairs match (and keep in mind that the two objects may not even have any of the same keys),
-//the function should return false. To make your life easier, 
-//don't worry about whether a property is a string ('age') or an identifier name (age). 
-//Those can be considered equivalent. 
-//Add some driver code that tests both outcomes of your function.
-
+		 //If we called your function with {name: "Steven", age: 54} 
+		//and {name: "Tamir", age: 54}, the function would return true,
 
 // <------RELEASE 2 Generate Random Test Data --------->
 
 // Write a function 
 		//  takes an integer for length, 
 		//  builds and returns an array of strings of the given length. 
-
 // So if we ran your function with an argument of 3, we would get an array 
 // of 3 random words back (the words don't have to be actual sensical English words -- "nnnnfph" totally counts). 
 // The words should be of randomly varying length, with a minimum of 1 letter and a maximum of 10 letters. 
