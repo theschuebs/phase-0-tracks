@@ -1,0 +1,100 @@
+1) This is the students table:
+
+sqlite> SELECT * FROM students;                                                 
+1|Johnny Appleseed|1|true|1
+2|Hermione Granger|1|true|2
+3|Stanley Yelnats|2|true|3
+4|Katniss Everdeen|4|false|2
+5|Zero|5|false|1
+
+
+2) Johnny Appleseed mistakenly received a rank of "1", when Hermione Granger really earned the rank of "1", 
+I corrected Johnny Appleseed's rank to "3". 
+
+sqlite> UPDATE students SET rank=3 WHERE name = "Johnny Appleseed";
+sqlite> SELECT * FROM students;
+1|Johnny Appleseed|3|true|1
+2|Hermione Granger|1|true|2
+3|Stanley Yelnats|2|true|3
+4|Katniss Everdeen|4|false|2
+5|Zero|5|false|1
+
+3) Display both tables using one query:
+
+sqlite> SELECT * FROM students, teachers WHERE students.teacher_id = teachers.id;
+
+1|Johnny Appleseed|3|true|1|1|Moore
+2|Hermione Granger|1|true|2|2|Schuebel
+3|Stanley Yelnats|2|true|3|3|Tani
+4|Katniss Everdeen|4|false|2|2|Schuebel
+5|Zero|5|false|1|1|Moore
+
+4) Display a narrower selection of columns from both tables using one query. Here I will only display the
+student, the student's corresponding teacher, and whether or not the student is passing. 
+
+sqlite> SELECT students.name, teachers.name, students.passing FROM students JOIN teachers ON students.teacher_id = teachers.id;
+Johnny Appleseed|Moore|true
+Hermione Granger|Schuebel|true
+Stanley Yelnats|Tani|true
+Katniss Everdeen|Schuebel|false
+Zero|Moore|false
+
+
+5) Delete an item that meets some condition. 
+
+Zero needs to repeat the previous grade, therefore he needs to be removed from the data table. 
+
+sqlite> DELETE FROM students
+   ...> WHERE name = "Zero";
+sqlite> SELECT * FROM students;
+1|Johnny Appleseed|3|true|1
+2|Hermione Granger|1|true|2
+3|Stanley Yelnats|2|true|3
+4|Katniss Everdeen|4|false|2
+
+******RELEASE 3 RESEARCH*******
+This is a cross join. It basically outputs every combination... Not all that useful. (too much!!!)
+
+sqlite> SELECT * FROM students, teachers;
+1|Johnny Appleseed|3|true|1|1|Moore
+1|Johnny Appleseed|3|true|1|2|Schuebel
+1|Johnny Appleseed|3|true|1|3|Tani
+2|Hermione Granger|1|true|2|1|Moore
+2|Hermione Granger|1|true|2|2|Schuebel
+2|Hermione Granger|1|true|2|3|Tani
+3|Stanley Yelnats|2|true|3|1|Moore
+3|Stanley Yelnats|2|true|3|2|Schuebel
+3|Stanley Yelnats|2|true|3|3|Tani
+4|Katniss Everdeen|4|false|2|1|Moore
+4|Katniss Everdeen|4|false|2|2|Schuebel
+4|Katniss Everdeen|4|false|2|3|Tani
+
+
+Inner- a join predicate creates a result row. I set the conditions!
+
+sqlite> SELECT * FROM students JOIN teachers ON teacher_id = teachers.id; 
+1|Johnny Appleseed|3|true|1|1|Moore
+2|Hermione Granger|1|true|2|2|Schuebel
+3|Stanley Yelnats|2|true|3|3|Tani
+4|Katniss Everdeen|4|false|2|2|Schuebel
+
+
+****Inner and outer use ON USING NATURAL as keywords*******
+
+Outer join logic (Left, right, and full. SQLite only supports LEFT) see all the rows from the LEFT table.
+Outer joins append unjoined data and pads them into rows with NULL
+
+sqlite> SELECT * FROM students LEFT OUTER JOIN teachers ON teacher_id = teachers.id;
+1|Johnny Appleseed|3|true|1|1|Moore
+2|Hermione Granger|1|true|2|2|Schuebel
+3|Stanley Yelnats|2|true|3|3|Tani
+4|Katniss Everdeen|4|false|2|2|Schuebel
+5|Draco Malfoy|6||||
+
+
+sqlite> SELECT students.name, teachers.name FROM students LEFT OUTER JOIN teachers ON students.teacher_id = teachers.id;
+Johnny Appleseed|Moore
+Hermione Granger|Schuebel
+Stanley Yelnats|Tani
+Katniss Everdeen|Schuebel
+Draco Malfoy|
