@@ -1,0 +1,8 @@
+SELECT users.first_name, users.last_name, businesses.name, reviews.stars, reviews.comment FROM reviews JOIN users ON user_id = users.id JOIN businesses ON business_id = businesses.id;
+Mandy|Kaling|Lotus Yoga|3|Fun classes!
+Steven|Wonder|Amir's Towing|1|They took my car :(
+Holly|Berry|Grundy Hollow Wedding Chapel|4|My wedding was perfect!
+
+
+SELECT users.first_name, users.last_name, businesses.name, reviews.stars, reviews.comment FROM reviews JOIN users ON user_id = users.id JOIN businesses ON business_id = businesses.id WHERE business_id = 2;
+Steven|Wonder|Amir's Towing|1|They took my car :(
