@@ -1,4 +1,5 @@
-What are some common HTTP status codes?
+#What are some common HTTP status codes?
+
 	200 OK
 		Request has been successful, this is what we hope to see.
 
@@ -25,7 +26,8 @@ What are some common HTTP status codes?
 		Server couldn't find anything matching the Request-URI. Doesn't know if it's temporary or permanent.
 
 
-What is the difference between a GET request and POST request? When might each be used?
+#What is the difference between a GET request and POST request? When might each be used?
+
 	GET AND POST are the two most frequent methods.
 	Get- REQUESTS data from a specific resource
 		Can be cached
@@ -40,7 +42,7 @@ What is the difference between a GET request and POST request? When might each b
 		cannot be bookmarked
 		no restrictions on data length
 
-What is a cookie? How does it relate to HTTP requests?
+#What is a cookie? How does it relate to HTTP requests?
 
 	A cookie is a small piece of data sent from a website and stored in the user's web browser while the user is browsing.
 
