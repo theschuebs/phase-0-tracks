@@ -20,8 +20,21 @@ var unordered = document.getElementsByTagName('li')
 	listItemTwo.addEventListener("mouseover", changeFont);
 //How can I make this more DRY?
 
+//ONE LIZARD per button click
+// function multiplyLizard() {
+//     var photo = document.getElementById("lizard-photo");
+//     var cln = photo.cloneNode(true);
+//     document.body.appendChild(cln);
+// }
+
+
+//MULTIPLE LIZARDs per button click}
 function multiplyLizard() {
+
+    for (i = 0; i < 10; i++) {
+
     var photo = document.getElementById("lizard-photo");
     var cln = photo.cloneNode(true);
-    document.body.appendChild(cln);
+    document.body.appendChild(cln);    }
+
 }
