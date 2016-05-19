@@ -1,6 +1,6 @@
 #What are some of the key design philosophies of the Linux operating system?
 
-* Linux is a multiuser, multi-tasking system with a full set of UNIX compatible tools. It adheres to traditional UNIX semantics and there are three main bodies of code: THE KERNEL, THE SYSTEM LIBRARIES< and THE SYSTEM UTILITIES. From what I read, it sounds like cost is a primary reason Linux is popular. It's free and flexible. Unix is proprietary. 
+* Linux is a multiuser, multi-tasking system with a full set of UNIX compatible tools. It adheres to traditional UNIX semantics and there are three main bodies of code: THE KERNEL, THE SYSTEM LIBRARIES, and THE SYSTEM UTILITIES. From what I read, it sounds like cost is a primary reason Linux is popular. It's free and flexible. Unix is proprietary. 
 
 
 #In your own words, what is a VPS (virtual private server)? What, according to your research, are the advantages of using a VPS?
