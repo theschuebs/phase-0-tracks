@@ -1,13 +1,31 @@
 console.log("The script is running!");
 
-//Declare a function. Give it a name that describes my goal. Add a class to the body.
+$('#lizard-photo').on('click', function(){
+	$('#lizard-photo').slideUp(600);
+});
 
-// Call the function
+$('button').on('click', function(){
+	$('button').hide();
+});
 
-// function NAME() {
-// 	$(TAG).***()
-// }
 
-$('li').hide() 
+$('li').on('click', function(){
+	$('li').slideToggle(800);
+});
 
-$('li').show()
+//Next learning goal- How to show everything I've just hidden.
+// $('li').on('click', function(){
+// 	$('li').show();
+// });
+ 
+function addLizardSlime() {
+	$('body').addClass('slime');
+};
+
+function greet(firstName){
+	$('h1').html('Hello ' + firstName );
+};
+
+
+greet('Erika')
+addLizardSlime()
