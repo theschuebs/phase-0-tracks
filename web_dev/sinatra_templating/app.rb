@@ -2,6 +2,7 @@
 require 'sinatra'
 require 'sqlite3'
 
+# add static resources
 set :public_folder, File.dirname(__FILE__) + '/static'
 
 db = SQLite3::Database.new("students.db")
@@ -17,6 +18,11 @@ get '/students/new' do
   erb :new_student
 end
 
+get '/campus' do
+	@students = db.execute("SELECT * FROM students")
+  erb :campus
+end
+
 # create new students via
 # a form
 post '/students' do
@@ -24,4 +30,3 @@ post '/students' do
   redirect '/'
 end
 
-# add static resources
