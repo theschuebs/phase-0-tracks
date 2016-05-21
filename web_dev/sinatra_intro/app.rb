@@ -39,8 +39,18 @@ end
 
 # # write a GET route that retrieves
 # # a particular student
-get '/students/:id' do
+get '/students/id/:id' do
   student = db.execute("SELECT * FROM students WHERE id=?", [params[:id]])[0]
+    ind_response = ""
+      ind_response << "ID: #{student['id'.to_i]}<br>"
+      ind_response << "Name: #{student['name']}<br>"
+      ind_response << "Age: #{student['age']}<br>"
+      ind_response << "Campus: #{student['campus']}<br><br>"
+    ind_response
+end
+
+get '/students/age/:age' do
+  student = db.execute("SELECT * FROM students WHERE age=?", [params[:age]])[0]
     ind_response = ""
       ind_response << "ID: #{student['id'.to_i]}<br>"
       ind_response << "Name: #{student['name']}<br>"
@@ -77,3 +87,6 @@ end
 # in some way -- maybe for students who have a certain first name, 
 # or some other attribute. If you like, you can simply modify the home page to take a query parameter, 
 # and filter the students displayed if a query parameter is present.
+
+
+
